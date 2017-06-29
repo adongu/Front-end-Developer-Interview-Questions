@@ -51,6 +51,7 @@ This file contains a number of front-end interview questions that can be used wh
 #### HTML Questions:
 
 * What does a `doctype` do?
+-
 * What's the difference between full standards mode, almost standards mode and quirks mode?
 * What's the difference between HTML and XHTML?
 * Are there any problems with serving pages as `application/xhtml+xml`?
@@ -103,6 +104,12 @@ This file contains a number of front-end interview questions that can be used wh
 #### JS Questions:
 
 * Explain event delegation
+  - **simple technique by which you add a single event handler to a parent element in order to avoid having to add event handlers to multiple child elements.  Adding event handlers to each of the 1000 cells would be a major performance problem and, potentially, a source of browser-crashing memory leaks.
+
+  $('ul.test').('on', 'li', 'click') !== $('ul.test li').('on', 'click')
+
+currentTarget returns event-listening element; target returns event triggerer
+ https://www.sitepoint.com/javascript-event-delegation-is-easier-than-you-think/**
 * Explain how `this` works in JavaScript
 * Explain how prototypal inheritance works
 * What do you think of AMD vs CommonJS?
