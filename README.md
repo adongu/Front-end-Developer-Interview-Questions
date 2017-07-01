@@ -108,7 +108,7 @@ This file contains a number of front-end interview questions that can be used wh
 * **Explain how `this` works in JavaScript**
   - A: "this" refers to the invocation context of function. You can use '.apply(), .call(), or .bind() to change context of 'this'
 * **Explain how prototypal inheritance works**
-  - A: JavaScript prototypical inheritance "behavior delegation" (merely delegation links between objects). 'GET' method delegating UP the [[Prototype]] chain until it finds or runs out. It's a completely different mechanism than classical inheritance.
+  - A: JavaScript prototypical inheritance "behavior delegation" (merely delegation links between objects). First looks up through [[Prototype]] linkage, if not there, internal 'GET' operation will traverse up (delegating UP) the [[Prototype]] chain until it finds the method or runs out of objects to traverse. It's a completely different mechanism than classical inheritance. JavaScript prototypical inheritance is objects that are each linked to another object: behavior delegation.
 * **What do you think of AMD vs CommonJS?**
 * **Explain why the following doesn't work as an IIFE: `function foo(){ }();`.**
   * **What needs to be changed to properly make it an IIFE?**
