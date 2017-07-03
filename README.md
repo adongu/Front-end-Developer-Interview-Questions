@@ -110,8 +110,20 @@ This file contains a number of front-end interview questions that can be used wh
 * **Explain how prototypal inheritance works**
   - A: JavaScript prototypical inheritance "behavior delegation" (merely delegation links between objects). First looks up through [[Prototype]] linkage, if not there, internal 'GET' operation will traverse up (delegating UP) the [[Prototype]] chain until it finds the method or runs out of objects to traverse. It's a completely different mechanism than classical inheritance. JavaScript prototypical inheritance is objects that are each linked to another object: behavior delegation.
 * **What do you think of AMD vs CommonJS?**
+  - A: Modules offers encapsulation and dependency management(prevent conflicts), no more globals and namespaces, "script tag hell". Both AMD and CommonJS are declaration formats for JavaScript modules and dependencies
+
+    Update: ES 2015 'import' and 'export' allows bringing of modules into namespace. Static analyzers can then build a full tree of dependencies without running code. Babel JS can transpile ES 2015
+
+    * AMD(Asynchronous Module Definition) - Designed with browsers in mind and accommodates asynchronous loading (jQuery uses it). Allows loading of dependencies first before
+    * CommonJS - Synchronous API, not suitable for clientside. One file per module  
+
 * **Explain why the following doesn't work as an IIFE: `function foo(){ }();`.**
+  - A: IIFE(Immediate Invoked Function Expression) are used to prevent events of hoisting on function returns and  to enforce private variables and methods(return functions which has access to variables through closure, thus no outside access to inner private variables or functions).
   * **What needs to be changed to properly make it an IIFE?**
+  - A: In example is a function definition, not an expression. You need to wrap the function inside a parenthesis to invoke it so JS parser can understand its a function immediately before the ();.
+  ```JavaScript
+  (function foo(){ }());
+  ```
 * **What's the difference between a variable that is: `null`, `undefined` or undeclared?**
   * **How would you go about checking for any of these states?**
 * **What is a closure, and how/why would you use one?**
@@ -129,6 +141,7 @@ This file contains a number of front-end interview questions that can be used wh
 * **Have you ever used JavaScript templating?**
   * **If so, what libraries have you used?**
 * **Explain "hoisting".**
+  - A: JS interpreter lifting whole body of Function declaration(anonymous functions) and variable declaration to the top of the scope.
 * **Describe event bubbling.**
 * **What's the difference between an "attribute" and a "property"?**
 * **Why is extending built-in JavaScript objects not a good idea?**
